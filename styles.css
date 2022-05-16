@@ -1,0 +1,194 @@
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body{
+    font-family: 'Kumbh Sans', sans-serif;
+    font-size: 16px;
+
+}
+
+section{
+    width: 100%;
+    height: 100vh;
+    background: rgb(202,136,252);
+    background: linear-gradient(227deg, rgba(202,136,252,1) 0%, rgba(89,55,212,1) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    width: 100%;
+    max-width: 80rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 20px;
+}
+
+.imagenes{
+    width: 50%;
+    background-image: url(images/bg-pattern-desktop.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    background-position: center;
+}
+.acordeon {
+    width: 50%;
+    height: 70%;
+    padding-right: 8rem;
+    padding-left: 6rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.imagen-1{
+    position: relative;
+    width: 43.75rem;
+    top: 0;
+    right: 6.875rem;
+    z-index: 1;
+    outline: none;
+}
+
+.imagen-2{
+    position: absolute;
+    z-index: 3;
+    left: 3rem;
+    bottom: 15rem;
+}
+.imagen-3 {
+    display: none;
+}
+
+h1{
+    font-family: 'Kumbh Sans', sans-serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+.acordeon-items{
+    background-color: #fff;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgb(199, 199, 199);
+}
+
+.acordeon-link{
+    font-size: 1rem;
+    color: rgb(0, 6, 83);
+    font-weight: 500;
+    text-decoration: none;
+    background-color: #fff;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+
+.acordeon-link ion-icon{
+    color: orange;
+    padding: .5rem;
+}
+
+.icon-up {
+    display: none;
+}
+
+.answer{
+    max-height: 0;
+    overflow: hidden;
+    position: relative;
+    background-color: #fff;
+    transition: max-height 650ms;
+}
+
+.answer::before{
+    content: "";
+    position: absolute;
+    width: .6rem;
+    height: 90%;
+    top: 50%;
+    left: 0;
+    transform:  translateY(-50%);
+}
+
+.answer p{
+    font-size: 1rem;
+    color: rgb(136, 136, 136);
+    font-weight: 600;
+}
+
+.acordeon-link:hover{
+    color: orange;
+}
+
+.acordeon-items:target .answer{
+    max-height: 20rem;
+}
+.acordeon-items:target .acordeon-link{
+    font-weight: 700;
+    color: black;
+}
+
+.acordeon-items:target .acordeon-link .icon-down{
+    display: none;
+}
+.acordeon-items:target .acordeon-link .icon-up{
+    display: block;
+}
+
+@media screen and (max-width: 480px){
+    body{
+        font-size: 4px;
+    }
+    .imagen-1, .imagen-2{
+        display: none;
+    }
+    .imagenes{
+        width: 100%;
+        height: 20%;
+        background-image: url(images/bg-pattern-mobile.svg);
+        background-size: contain;
+        overflow: unset;
+        background-position: bottom;
+    }
+    .imagen-3 {
+        display: block;
+        position: relative;
+        width: 20rem;
+        bottom: 30em;
+        right: 6em;
+    }
+    .container{
+        width: 80%;
+        height: 80%;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    .acordeon {
+        width: 100%;
+        height: 70%;
+        padding-right: 2rem;
+        padding-left: 2rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+    h1{
+        text-align: center;
+    }
+    .answer p {
+        font-size: 3em;
+    }
+    .acordeon-link {
+        font-size: 3.5em;
+    }
+
+}
